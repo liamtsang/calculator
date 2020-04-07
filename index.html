@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Calculator</title>
+</head>
+<body>
+
+  <label>Half this number...
+    <input type="number" id="half-input">
+  </label>
+  <button id="half-button">Calculate</button>
+  <br><br>
+
+  <label>Give me your name and I'll give you a fortune...
+    <input id="fortune-input">
+  </label>
+  <button id="fortune-button">Get Fortune</button>
+  <br><br>
+  <div id="fortune-output"></div>
+
+</body>
+  <script>
+    
+  const hb = document.getElementById('half-button');
+  const hi = document.getElementById('half-input');
+  const fb = document.getElementById('fortune-button');
+  const fi = document.getElementById('fortune-input');
+  const fo = document.getElementById('fortune-output');
+
+  let arr = ['the fortune you seek has been inside you all along.','you might want to get tested.','you look tired.','are you sure you washed your hands?']
+    
+  hb.addEventListener('click', event => {
+    var x = hi.value;
+    var half=x/2;
+    alert(half);
+    console.log("Half of " + x + " is " + half + ".");
+  });
+    
+  fb.addEventListener('click', event => {
+    const rand = Math.floor(Math.random() *4); 
+    fo.innerHTML = fi.value + ", "+ arr[rand];
+    restyle();
+  })
+  
+  function restyle() {
+    const size = Math.floor(Math.random() * 12);
+    const space = Math.floor(Math.random() * 15);
+    const c1 = Math.floor(Math.random() * 255);
+    const c2 = Math.floor(Math.random() * 255);
+    const c3 = Math.floor(Math.random() * 255);
+    
+    fo.style.fontSize = size + "rem";
+    fo.style.letterSpacing = space + "px";
+    fo.style.color = "rgb(" + c1 + "," + c2 + ","+ c3 + ")";
+  }
+</script>
+</html>
