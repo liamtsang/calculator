@@ -50,21 +50,30 @@
   const fi = document.getElementById('fortune-input');
   const fo = document.getElementById('fortune-output');
 
-  let arr = ['the fortune you seek has been inside you all along.','you might want to get tested.','you look tired.','are you sure you washed your hands?']
+  let arr = ['the fortune you seek has been inside you all along.','you might want to get tested.','you look tired.','are you sure you washed your hands?','please release me from this webpage.','forget about it.','you should put on some deodorant.']
     
   hb.addEventListener('click', event => {
-    var x = hi.value;
-    var half=x/2;
-    alert(half);
-    console.log("Half of " + x + " is " + half + ".");
+    halfNumber(hi.value);
   });
     
+ 
+    
   fb.addEventListener('click', event => {
-    const rand = Math.floor(Math.random() *4); 
-    fo.innerHTML = fi.value + ", "+ arr[rand];
+    fortune();
     restyle();
   })
   
+  function halfNumber(x){
+    var half=x/2;
+    alert(half);
+    console.log("Half of " + x + " is " + half + ".");
+  }
+    
+  function fortune(){
+    const rand = Math.floor(Math.random() *4); 
+    fo.innerHTML = fi.value + ", "+ arr[rand];
+  }
+    
   function restyle() {
     const size = Math.floor(Math.random() * 12);
     const space = Math.floor(Math.random() * 15);
